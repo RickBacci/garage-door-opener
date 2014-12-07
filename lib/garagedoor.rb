@@ -4,7 +4,7 @@ require 'pi_piper'
 include PiPiper
 
 require './on_off'
-require './blink'
+require './activate_door'
 
 get '/' do
   erb :index
