@@ -12,22 +12,22 @@ def activate_door
   pin.on
 end
 
-def check_status
-  pin = PiPiper::Pin.new(:pin => 7)
-  pin.read
- # return "#{pin.read}" if pin.read.to_i == 1
-  
-   "#{pin.read.is_a? Integer}"
-   "#{pin.changed?}"
-end
-
 # def check_status
-#   @gpio = WiringPi::GPIO.new
-#   status = @gpio.read(7)
-
-#   return "OPEN" if status == 1 
-#   "CLOSED"
+#   pin = PiPiper::Pin.new(:pin => 7)
+#   pin.read
+#  # return "#{pin.read}" if pin.read.to_i == 1
+  
+#    "#{pin.read.is_a? Integer}"
+#    "#{pin.changed?}"
 # end
+
+def check_status
+  @gpio = WiringPi::GPIO.new
+  status = @gpio.read(7)
+
+  return "OPEN" if status == 1 
+  "CLOSED"
+end
 
 # def press_button
 #   @gpio = WiringPi::GPIO.new
