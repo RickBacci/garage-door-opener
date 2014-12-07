@@ -13,13 +13,10 @@ def activate_door
 end
 
 def check_status
-  pin = PiPiper::Pin.new(:pin => 7)
+  pin7 = PiPiper::Pin.new(:pin => 7)
 
-  return "OPEN" if pin.read == 1
+  return "OPEN" if pin7.read == 1
   "CLOSED"
-  end
-end
-
 end
 
 # def check_status
