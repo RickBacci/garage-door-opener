@@ -6,6 +6,19 @@ include PiPiper
 require './on_off'
 require './activate_door'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 get '/' do
   erb :index
 end
