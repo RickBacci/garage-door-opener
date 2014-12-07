@@ -13,11 +13,9 @@ def activate_door
 end
 
 def check_status
+  pin = PiPiper::Pin.new(:pin => 7, :direction => :in)
 
-  PiPiper.watch :pin => 7, do |pin|
-  puts "Pin changed from #{pin.last_value} to #{pin.value}"
-  
-  return "OPEN" if pin.last_value == 1
+  return "OPEN" if pin == 1
   "CLOSED"
   end
 end
