@@ -12,14 +12,22 @@ def activate_door
   pin.on
 end
 
-
 def check_status
-  @gpio = WiringPi::GPIO.new
-  status = @gpio.read(7)
-
-  return "OPEN" if status == 1 
+  watch :pin => 7 do
+  puts "Pin changed from #{last_value} to #{value}"
+  return "OPEN" if last_value == 1
   "CLOSED"
 end
+
+end
+
+# def check_status
+#   @gpio = WiringPi::GPIO.new
+#   status = @gpio.read(7)
+
+#   return "OPEN" if status == 1 
+#   "CLOSED"
+# end
 
 # def press_button
 #   @gpio = WiringPi::GPIO.new
