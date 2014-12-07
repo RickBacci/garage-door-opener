@@ -5,12 +5,12 @@ require 'pi_piper'
 include PiPiper
 
 
-def activate_door
-  pin = PiPiper::Pin.new(:pin => 17, :direction => :out, :invert => false)
-  pin.off
-  sleep 1
-  pin.on
-end
+# def activate_door
+#   pin = PiPiper::Pin.new(:pin => 17, :direction => :out, :invert => false)
+#   pin.off
+#   sleep 1
+#   pin.on
+# end
 
 # def check_status
 #   pin = PiPiper::Pin.new(:pin => 7)
@@ -29,13 +29,13 @@ def check_status
   "CLOSED"
 end
 
-# def press_button
-#   @gpio = WiringPi::GPIO.new
+def activate_door
+  @gpio = WiringPi::GPIO.new
 
-#   @gpio.write(0, 0)
-#   sleep 1
-#   @gpio.write(0, 1)
-# end
+  @gpio.write(0, 0)
+  sleep 1
+  @gpio.write(0, 1)
+end
 
 get '/' do
   erb :index
